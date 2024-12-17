@@ -2,6 +2,7 @@ export interface PropertyFilters {
   bedrooms: string;
   bathrooms: string;
   condition: string;
+  capacity?: string;
 }
 
 export interface Region {
