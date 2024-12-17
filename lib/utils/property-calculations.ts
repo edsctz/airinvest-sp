@@ -21,7 +21,6 @@ export function calculateAvailableProperties(
 
   // Apply property filters consistently
   if (isFiltersComplete(filters)) {
-    count = applyCapacityFilter(count, filters.capacity);
     count = applyBedroomFilter(count, filters.bedrooms);
     count = applyBathroomFilter(count, filters.bathrooms);
     count = applyConditionFilter(count, filters.condition);
@@ -39,14 +38,6 @@ function getInvestmentRatio(investment: number): number {
 
 function isFiltersComplete(filters: PropertyFilters): boolean {
   return Object.values(filters).every(Boolean);
-}
-
-function applyCapacityFilter(count: number, capacity: string): number {
-  const capacityNum = parseInt(capacity, 10);
-  if (capacityNum <= 4) return Math.floor(count * 0.4);
-  if (capacityNum <= 6) return Math.floor(count * 0.35);
-  if (capacityNum <= 8) return Math.floor(count * 0.15);
-  return Math.floor(count * 0.1);
 }
 
 function applyBedroomFilter(count: number, bedrooms: string): number {
