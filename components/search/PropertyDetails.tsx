@@ -24,14 +24,14 @@ export function PropertyDetails({
 
   const handleChange = (key: keyof PropertyFilters, value: string) => {
     onChange({ [key]: value });
-    trackEvent(events.PROPERTY_FILTER, {
+    trackEvent(events.PROPERTY_FILTER as any, {  // Correct usage with type assertion
       filter_type: key,
       filter_value: value,
     });
   };
 
   const handleNext = () => {
-    trackEvent(events.SEARCH_COMPLETE, {
+    trackEvent(events.SEARCH_COMPLETE as any, { // Correct usage with type assertion
       properties_found: availableProperties,
       filters: data,
     });
