@@ -20,14 +20,14 @@ export function InvestmentRange({ value, onChange, onNext }: InvestmentRangeProp
   const handleSliderChange = (values: number[]) => {
     const newValue = values[0];
     onChange(newValue);
-    trackEvent(events.INVESTMENT_SELECT, {
+    trackEvent(events.INVESTMENT_SELECT, { // Correct usage
       value: newValue,
       formatted_value: formatCurrency(newValue),
     });
   };
 
   const handleNext = () => {
-    trackEvent(events.SEARCH_START, {
+    trackEvent(events.SEARCH_START, { // Correct usage
       initial_investment: value,
       formatted_investment: formatCurrency(value),
     });
